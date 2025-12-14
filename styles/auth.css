@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --dark-lighten: #2a2a2a;
+  --dark: #222;
+  --dark-darken: #1a1a1a;
+  --orange: #ff4112;
+  --red: #b12922;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+
+  --swiper-theme-color: #b12922 !important;
+}
+
+body {
+  margin: 0;
+}
+
+/* Overall overlay and card for two-column auth layout */
+.auth-overlay {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/authbg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  z-index: 0;
+}
+
+.auth-card {
+  width: 980px;
+  max-width: calc(100% - 64px);
+  min-height: 520px;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  background: transparent;
+}
+
+.auth-left {
+  flex: 1 1 50%;
+  min-width: 320px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 40px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--gray-100);
+}
+
+nav a img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--dark);
+  text-decoration: none;
+}
+.brand-text {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--dark);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-actions a {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #ffffff;
+}
+.nav-actions a.login {
+  background: var(--dark);
+  color: #fff;
+}
+.nav-actions a.register {
+  background: var(--red);
+  color: #fff;
+}
+
+.form-wrapper {
+  /* Right column inside the auth card (previously centered standalone) */
+  flex: 1 1 50%;
+  border-radius: 0;
+  padding: 48px;
+  width: auto;
+  background: #ffffff; /* changed to white */
+  color: #000000; /* changed to black text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-wrapper h2 {
+  color: #000000;
+  font-size: 2rem;
+}
+
+.form-wrapper form {
+  margin: 25px 0 65px;
+}
+
+form .form-control {
+  height: 50px;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.form-control input {
+  height: 100%;
+  width: 100%;
+  background: #f3f4f6;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  color: #333;
+  font-size: 1rem;
+  padding: 0 20px;
+}
+
+.form-control input:is(:focus, :valid) {
+  background: #f3f4f6;
+  padding: 16px 20px 0;
+}
+
+.form-control label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  color: #333333; /* darker label color */
+  transition: all 0.1s ease;
+}
+
+.form-control input:is(:focus, :valid) ~ label {
+  font-size: 0.75rem;
+  transform: translateY(-130%);
+}
+
+form button {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  background: #000000; /* black button */
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  margin: 20px 0 8px;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+
+form button:hover {
+  background: #222222; /* slightly lighter on hover */
+  transform: translateY(-1px);
+}
+
+.form-wrapper a {
+  text-decoration: none;
+}
+
+.form-wrapper a:hover {
+  text-decoration: underline;
+}
+
+.form-wrapper :where(label, p, small, a) {
+  color: #000000;
+}
+
+form .form-help {
+  display: flex;
+  justify-content: space-between;
+}
+
+form .remember-me {
+  display: flex;
+}
+
+form .remember-me input {
+  margin-right: 5px;
+  accent-color: #b3b3b3;
+}
+
+form .form-help :where(label, a) {
+  font-size: 0.9rem;
+}
+
+.form-wrapper p a {
+  color: #e50914; /* red */
+}
+
+/* Center the form content and constrain its width so inputs don't span entire right column */
+.form-wrapper form {
+  width: 100%;
+  max-width: 420px;
+}
+
+.form-wrapper small {
+  display: block;
+  margin-top: 15px;
+  color: #b3b3b3;
+}
+
+.form-wrapper small a {
+  color: #0071eb;
+}
+
+@media (max-width: 740px) {
+  body::before {
+    display: none;
+  }
+
+  nav,
+  .form-wrapper {
+    padding: 20px;
+  }
+
+  nav a img {
+    width: 140px;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    top: 43%;
+  }
+
+  .form-wrapper form {
+    margin: 25px 0 40px;
+  }
+}
+
+/* Message shown for form errors/success (placed above submit button) */
+.form-message {
+  min-height: 20px;
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--red);
+}

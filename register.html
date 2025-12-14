@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="./styles/auth.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="shortcut icon" href="./assets/laimargos-logo.png" type="image/x-icon" />
+</head>
+<body class="auth-page">
+</body>
+  <nav>
+    <a class="brand" href="./index.html"><img src="./assets/laimargos-logo.png" alt="Laimargos"><span class="brand-text">Laimargos'</span></a>
+    <div class="nav-actions">
+      <a class="login" href="./login.html">Login</a>
+      <a class="register" href="./register.html">Register</a>
+    </div>
+  </nav>
+
+  <div class="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-left">
+        <img src="./assets/authimg.jpg" alt="auth image" />
+      </div>
+      <div class="form-wrapper">
+        <h2>Sign Up</h2>
+        <form action="#">
+          <div class="form-control">
+            <input id="registerUsername" type="text" required />
+            <label>Username</label>
+          </div>
+          <div class="form-control">
+            <input id="registerEmail" type="text" required />
+            <label>Email address</label>
+          </div>
+          <div class="form-control">
+            <input id="registerPassword" type="password" required />
+            <label>Password</label>
+          </div>
+          <div class="form-control">
+            <input id="registerConfirmPassword" type="password" required />
+            <label>Confirm Password</label>
+          </div>
+          <div id="registerMessage" class="form-message" aria-live="polite"></div>
+          <button type="submit" id="btnRegister" onclick="addAccount()">Sign Up</button>
+          <div class="form-help">
+            <div class="remember-me">
+              <input type="checkbox" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+            </div>
+            <a href="#">Need help?</a>
+          </div>
+        </form>
+        <p>Already have an account? <a href="./login.html">Sign in now</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-left">&copy; 2025 Laimargos'</div>
+    <div class="footer-right">
+      <span>Contacts:</span>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="#" class="social-link" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script src="./scripts/register.js"></script>
+</body>
+</html>
